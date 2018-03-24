@@ -1,0 +1,262 @@
+body{
+  margin: 0;
+  overflow-x: hidden;
+  font-family: "lucida grande", "lucida sana", "trebuchet ms";
+}
+.container{
+  top: 0;
+}
+header{
+  background: none;
+  width: 100% ;
+  height: 100% ;
+
+
+
+}
+#background_images{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-image: url("apde.jpg");
+  background-repeat: no-repeat;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0,0.5);
+}
+.back {
+  position: fixed;
+  width: 55%;
+  height: 0%;
+  top: 0;
+  margin-top: 0px;
+
+  border-left: 64vw solid rgba(0, 26, 26, .6);
+  border-bottom: 89vw solid rgba(0, 0, 0, .6);
+
+}
+
+.container{
+  position: absolute;
+  color: #85adad;
+  width: 100%;
+  margin: 0 auto;
+
+}
+
+.logo{
+  position: absolute;
+  float: left;
+  margin: 5 auto;
+  margin-left: 30px;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.site-nav {
+  margin-right: 20px;
+  margin-top: 5px;
+  float: right;
+
+}
+
+.site-nav ul{
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav li{
+  display: inline-block;
+  margin-left: 40px;
+  padding-top: 20px;
+}
+
+.site-nav a{
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn{
+  background-color: transparent;
+  color: #fff;
+  font-family: "lucida grande", "lucida sana", "trebuchet ms";
+  border-radius: 20px;
+  outline: none;
+  border: solid 2px #eee;
+  width: 120px;
+  height: 40px;
+  padding: 5px;
+  font-size: 15px;
+  margin-left: 600px;
+  margin-top: 320px;
+  position: absolute;
+  font-weight: lighter;
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 0.8s;
+}
+.btn:hover{
+  background-color: #eee;
+  color: #006666;
+  font-weight: bold;
+  transition-property: all;
+  transition-duration: 0.8s;
+}
+.heading{
+  font-size: 2rem;
+  color: #fff;
+  margin: 0;
+  margin-left: 470px;
+  margin-top: 250px;
+  text-transform: uppercase;
+  position: absolute;
+  font-weight: lighter;
+}
+
+#description{
+  text-align: center;
+}
+#dr{
+  width: 30%;
+  transition-property: all;
+  transition-duration: 0.8s;
+}
+#description:hover #dr{
+  width: 40%;
+  transition-property: all;
+  transition-duration: 0.8s;
+}
+#game_des{
+  position: absolute;
+  margin-top: 800px;
+  background-color: #0d261a;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  text-align: justify;
+
+}
+
+.g_desc{
+  padding-left: 20px;
+  font-weight: lighter;
+
+}
+.g_rules{
+  padding-left: 20px;
+  font-weight: lighter;
+}
+#game_des img{
+  float:right;
+  margin: 20px;
+  margin-top: 50px;
+  height: 330px;
+  width: 600px;
+
+}
+#play{
+  margin-top: 40px;
+  margin-left: 430px;
+  width: 450px;
+  position: absolute;
+  height: 500px;
+  display: none;
+  background-color: #fff;
+  text-align: center;
+  font-family:"lucida grande", "lucida sana", "trebuchet ms";
+  padding: 30px;
+  padding-top: 60px;
+  font-size: 19px;
+  color: #006666;
+  clear: both;
+  z-index: 10001;
+
+}
+
+#play input[type="text"]{
+  background: none;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  height: 45px;
+  width: 450px;
+  font-size: 18px;
+  outline: none;
+  resize: none;
+  float: left;
+  color: #006666;
+  font-family: "lucida grande", "lucida sana", "trebuchet ms";
+
+}
+
+#play input::-webkit-input-placeholder{
+
+  opacity: .8;
+  color: #006666 ;
+  font-family: "lucida grande", "lucida sana", "trebuchet ms";
+}
+h4{
+font-family:"lucida grande", "lucida sana", "trebuchet ms";
+font-size: 25px;
+padding-top: 0px;
+margin-top: 0px;
+padding-bottom: 10px;
+
+}
+#play a{
+  color: #34495e;
+  font-family: "lucida grande", "lucida sana", "trebuchet ms";
+  font-size: 18px;
+  text-decoration: none;
+}
+.btn-login{
+  cursor: pointer;
+  padding: 15px 25px;
+  background-color: transparent;
+  font-family: "lucida grande", "lucida sana", "trebuchet ms";
+  font-weight: 100;
+  font-size: 17px;
+  border: solid 1px #eee;
+  border-radius: 4px;
+  margin-top: 0px;
+  margin-left: 10px;
+  color: #ccc;
+  width: 200px;
+  transition-property: all;
+  transition-duration: 0.8s;
+}
+.btn-login:hover{
+
+  background-color: #eee;
+  border: solid 1px #006666;
+  font-weight: 200;
+  box-shadow: none;
+  transition-property: all;
+  transition-duration: 0.8s;
+  color: #006666;
+}
+#fhr{
+margin-top: 0px;
+width: 100%;
+border-color: #006666;
+float: left;
+}
+textarea{
+  background-color: #fff;
+  resize: none;
+  color: #006666 ;
+  font-family: "lucida grande", "lucida sana", "trebuchet ms";
+  font-size: 18px;
+  outline: none;
+  width: 100%;
+  border-radius: 2px;
+  border: 2px solid #006666;
+}
+textarea::-webkit-input-placeholder{
+ opacity: .8;
+ color: #006666 ;
+ font-family: "lucida grande", "lucida sana", "trebuchet ms";
+}
