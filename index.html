@@ -116,10 +116,8 @@
                 document.write("<br/>");
 
                 for (var i=0 ; i<row; i++){
-                  //document.write(i +"<br/>" );
                   for(var j=0; j<col; j++){
-                    if(i-1 >= mini && j <= max){
-                      //document.write(1 +"<br/>" );
+                    if(i-1 >= mini){
                       check = a[i-1][j];
                       if(check == 1){
                         counterlife++;
@@ -128,8 +126,16 @@
                         counterdeath++;
                       }
                     }
-                    if(i+1 <= max && j <= max){
-                      //document.write(2 +"<br/>" );
+                    if(j-1 >= mini){
+                      check = a[j-1][j];
+                      if(check == 1){
+                        counterlife++;
+                      }
+                      else {
+                        counterdeath++;
+                      }
+                    }
+                    if(i+1 < max){
                       check = a[i+1][j];
                       if(check == 1){
                         counterlife++;
@@ -138,18 +144,7 @@
                         counterdeath++;
                       }
                     }
-                    if(i <= max && j-1 >= mini){
-                      //document.write(3 +"<br/>" );
-                      check = a[i][j-1];
-                      if(check == 1){
-                        counterlife++;
-                      }
-                      else {
-                        counterdeath++;
-                      }
-                    }
-                    if(i <= max && j+1 <= max){
-                      //document.write(4 +"<br/>" );
+                    if(j+1 < max){
                       check = a[i][j+1];
                       if(check == 1){
                         counterlife++;
@@ -165,7 +160,7 @@
                       a[i][j] = 0;
                     }
 
-                    document.write(a[i][j] +"&emsp;" );
+                    document.write(a[i][j]+"&emsp;" );
                     counterlife = 0;
                     counterdeath = 0;
                     check = 0;
