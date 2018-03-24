@@ -114,9 +114,11 @@
                 }
 
                 document.write("<br/>");
-
-                for (var i=0 ; i<row; i++){
+                for(var k=0 ; k<gen; k++){
+                  for (var i=0 ; i<row; i++){
                   for(var j=0; j<col; j++){
+                    counterlife = 0;
+                    counterdeath = 0;
                     if(i-1 >= mini){
                       check = a[i-1][j];
                       if(check == 1){
@@ -127,7 +129,7 @@
                       }
                     }
                     if(j-1 >= mini){
-                      check = a[j-1][j];
+                      check = a[i][j-1];
                       if(check == 1){
                         counterlife++;
                       }
@@ -135,7 +137,7 @@
                         counterdeath++;
                       }
                     }
-                    if(i+1 < max){
+                    if(i+1 < max ){
                       check = a[i+1][j];
                       if(check == 1){
                         counterlife++;
@@ -154,19 +156,42 @@
                       }
                     }
                     if(counterlife>=counterdeath){
-                      a[i][j] = 1;
+                      if(a[i][j] == 1){
+                        if(counterlife<2){ 
+                          a[i][j] = 0;
+                        }
+                        if(counterlife>=2 && counterlife<4){
+                          a[i][j] = 1;
+                        }
+                        if(counterlife==4){
+                          a[i][j]=0;
+                        }
+                      }else{
+                        if(counterlife<2){ 
+                          a[i][j] = 0;
+                        }
+                        if(counterlife>=2 && counterlife<4){
+                          a[i][j] = 1;
+                        }
+                        if(counterlife==4){
+                          a[i][j]=0;
+                        }
+                      }
                     }
                     else {
                       a[i][j] = 0;
                     }
-
-                    document.write(a[i][j]+"&emsp;" );
-                    counterlife = 0;
-                    counterdeath = 0;
-                    check = 0;
+                    }
+                  }
                 }
-                document.write("<br/>");
-              }
+                
+                for (var i=0; i<row; i++){
+                	for(var j=0; j<col; j++){
+                      document.write(a[i][j] +"&emsp;");
+                    }
+                    document.write("<br/>");
+                }
+
 
 
         }
