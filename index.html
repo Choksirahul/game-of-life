@@ -17,13 +17,13 @@
 
       <h4><b>Play</b></h4>
 
-      <form name="myform" onsubmit="validateForm()">
+      <form name="myform" >
         <input type="text" name="rows" id="u" placeholder="Enter Rows"/><br><hr id="fhr"></hr><br><br>
         <input type="text" name="col" id="q" placeholder="Enter Columns"/><br><hr id="fhr"></hr><br><br>
         <input type="text" name="gen" id="q" placeholder="Enter Generation"/><br><hr id="fhr"></hr><br><br><br>
         <textarea  name="mat"  placeholder="Enter Matrix" id="txt_ar" rows="4"></textarea><br><br>
 
-        <input type="submit" value="SUBMIT" class="btn-login"></input><br>
+        <input type="button" value="SUBMIT" onclick="validateForm()"  id="re" class="btn-login"></input><br>
       </form>
 
     </div>
@@ -41,7 +41,6 @@
               <li><a href="">Home</a></li>
               <li><a href="">About</a></li>
               <li><a href="#" id="l">Play</a></li>
-
             </ul>
         </nav>
 
@@ -74,6 +73,14 @@
         </ol>
     </p>
   </div>
+  <div id="result">
+    <h2 class="heading2">Result</h2><hr id="fhr"/><br/><br/>
+
+    <span id="r1"></span>
+
+    <span id="r2"></span>
+
+  </div>
 <script src="jquery-3.2.1.js"></script>
 <script src="script.js"></script>
 <script>
@@ -81,47 +88,49 @@
         var row = document.forms["myform"]["rows"].value;
         var col = document.forms["myform"]["col"].value;
         var gen = document.forms["myform"]["gen"].value;
-        var t = row*col;
+
         entries(row, col, gen);
 
     }
 
-      function entries(row, col, gen) {
+    function entries(row, col, gen) {
 
           var x = document.getElementById("txt_ar").value;
           var s = x.split("");
           var k = 0;
-          var e = 0;
+          var str = '';
           var check = 0;
           var mini = 0;
+          var alivecells = 0;
           var max = row;
           var counterlife = 0;
           var counterdeath = 0;
           let a = new Array();
-
-          alert(s);
-
                 for (var i=0; i<row; i++){
                 	a[i] = new Array();
                 }
                 for (var i=0; i<row; i++){
                 	for(var j=0; j<col; j++){
-                      a[i][j] = s[k];
-                      k++;
-                      document.write(a[i][j] +"&emsp;");
+                      if(s[k] != " "){
+                        a[i][j] = s[k];
+                        k++;
+                      }
                     }
-                    document.write("<br/>");
-                }
+                    k++;
+                 }
 
-                document.write("<br/>");
+
+
+
                 for(var k=0 ; k<gen; k++){
+
                   for (var i=0 ; i<row; i++){
                   for(var j=0; j<col; j++){
                     counterlife = 0;
                     counterdeath = 0;
                     if(i-1 >= mini){
                       check = a[i-1][j];
-                      if(check == 1){
+                      if(check == '@'){
                         counterlife++;
                       }
                       else {
@@ -130,7 +139,7 @@
                     }
                     if(j-1 >= mini){
                       check = a[i][j-1];
-                      if(check == 1){
+                      if(check == '@'){
                         counterlife++;
                       }
                       else {
@@ -139,7 +148,7 @@
                     }
                     if(i+1 < max ){
                       check = a[i+1][j];
-                      if(check == 1){
+                      if(check == '@'){
                         counterlife++;
                       }
                       else {
@@ -148,7 +157,7 @@
                     }
                     if(j+1 < max){
                       check = a[i][j+1];
-                      if(check == 1){
+                      if(check == '@'){
                         counterlife++;
                       }
                       else {
@@ -156,45 +165,56 @@
                       }
                     }
                     if(counterlife>=counterdeath){
-                      if(a[i][j] == 1){
-                        if(counterlife<2){ 
-                          a[i][j] = 0;
+                      if(a[i][j] == '@'){
+                        if(counterlife<2){
+                          a[i][j] = '#';
                         }
                         if(counterlife>=2 && counterlife<4){
-                          a[i][j] = 1;
+                          a[i][j] = '@';
                         }
                         if(counterlife==4){
-                          a[i][j]=0;
+                          a[i][j] = '#';
                         }
                       }else{
-                        if(counterlife<2){ 
-                          a[i][j] = 0;
+                        if(counterlife<2){
+                          a[i][j] = '#';
                         }
                         if(counterlife>=2 && counterlife<4){
-                          a[i][j] = 1;
+                          a[i][j] = '@';
                         }
                         if(counterlife==4){
-                          a[i][j]=0;
+                          a[i][j] = '#';
                         }
                       }
                     }
                     else {
-                      a[i][j] = 0;
+                      a[i][j] = '#';
                     }
-                    }
+
+
+                      }
+
                   }
-                }
-                
-                for (var i=0; i<row; i++){
-                	for(var j=0; j<col; j++){
-                      document.write(a[i][j] +"&emsp;");
-                    }
-                    document.write("<br/>");
+
+
                 }
 
+
+                for (var i=0; i<row; i++){
+                	for(var j=0; j<col; j++){
+                      if(a[i][j] == '@'){
+                        alivecells++;
+                      }
+                    str += a[i][j]+"&emsp;";
+                    }
+                    str += "<br/><br/>";
+                }
+                document.getElementById('r1').innerHTML = str;
+                document.getElementById('r2').innerHTML = "There are "+alivecells+" alive cells";
 
 
         }
+        
 </script>
 
 </body>
